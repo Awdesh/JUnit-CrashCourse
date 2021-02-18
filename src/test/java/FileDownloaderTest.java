@@ -29,9 +29,11 @@ public class FileDownloaderTest {
     @Test
     public void testGetSum() {
         FileHelper fileHelper = mock(FileHelper.class);
+        //stubbing
+        doReturn(10).when(fileHelper).calculate(anyInt(), anyInt());
         FileDownloader fileDownloader = new FileDownloader(fileHelper);
         int sum = fileDownloader.getSum(5,10);
-        Assert.assertEquals(sum, 15);
+        Assert.assertEquals(sum, 10);
     }
 
     @Test
